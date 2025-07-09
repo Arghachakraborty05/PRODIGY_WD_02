@@ -1,0 +1,257 @@
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at top, #0f0f0f, #1c1c1c);
+    color: #00ffcc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+  }
+
+  header {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #00ffcc33;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    color: #00ffcc;
+  }
+
+  .heading-quote {
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-top: 1rem;
+    animation: riseFadeIn 1.2s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes riseFadeIn {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #00ffccaa;
+    margin-top: auto;
+  }
+
+  .container {
+    background-color: rgba(0, 255, 204, 0.05);
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.2), inset 0 0 15px rgba(0, 255, 204, 0.1);
+    border-radius: 2rem;
+    padding: 1.5rem;
+    max-width: 360px;
+    width: 90%;
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stopwatch {
+    font-size: clamp(1.5rem, 5.2vw, 2.6rem);
+    color: #00ffcc;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    transition: font-size 0.3s ease;
+  }
+
+  .stopwatch.paused {
+    animation: glowPulse 1s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0% {
+      opacity: 1;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    50% {
+      opacity: 0;
+      text-shadow: 0 0 0px #00ffcc;
+    }
+
+    100% {
+      opacity: 1;
+      text-shadow: 0 0 15px #00ffcc;
+    }
+  }
+
+  .controls {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+    border: 2px solid;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    background: transparent;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    color: currentColor;
+  }
+
+  #startStop.start {
+    color: #00ff00;
+    border-color: #00ff00;
+    box-shadow: 0 0 6px #00ff00;
+  }
+
+  #startStop.start:hover {
+    background-color: #00cc00;
+    color: #fff;
+    box-shadow: 0 0 18px #00ff00;
+  }
+
+  #startStop.pause {
+    color: #ff4444;
+    border-color: #ff4444;
+    box-shadow: 0 0 6px #ff4444;
+  }
+
+  #startStop.pause:hover {
+    background-color: #cc0000;
+    color: #fff;
+    box-shadow: 0 0 18px #ff4444;
+  }
+
+  .transparent-btn {
+    color: #00ffcc;
+    border-color: #00ffcc;
+    box-shadow: 0 0 6px #00ffcc;
+  }
+
+  .transparent-btn:hover {
+    background-color: #00ccaa;
+    color: #fff;
+    box-shadow: 0 0 18px #00ffcc;
+  }
+
+  .laps-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .laps {
+    list-style: none;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #00ffcc;
+    border-radius: 1rem;
+    background-color: rgba(0, 255, 204, 0.05);
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+    max-height: 10rem;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .laps li {
+    padding: 0.5rem;
+    border-bottom: 1px dashed #00ffcc;
+  }
+
+  .laps::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .laps::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .laps::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 255, 204, 0.3);
+    border-radius: 3px;
+  }
+
+  .laps {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 204, 0.3) transparent;
+  }
+
+  #clearLaps {
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 400px) {
+    header {
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+    }
+
+    .heading-quote {
+      font-size: 1rem;
+    }
+
+    button {
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .laps {
+      font-size: 0.75rem;
+      padding: 0.5rem;
+    }
+  }
+
+  @media (max-width: 250px) {
+    .stopwatch {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (min-width: 250px) and (max-width: 400px) {
+    .stopwatch {
+      font-size: 1.95rem;
+    }
+  }
+
+
+  @media (min-width: 400px) and (max-width: 480px) {
+    .stopwatch {
+      font-size: 2.5rem;
+    }
+  }
+
+
+  @media (min-width: 480px) and (max-width: 768px) {
+    .stopwatch {
+      font-size: 2.6rem;
+    }
+  }
