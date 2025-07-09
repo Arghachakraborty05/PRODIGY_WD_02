@@ -1,4 +1,5 @@
-let [ms, s, m] = [0, 0, 0];
+let startTime = 0;
+let elapsedTime = 0;
 let interval = null;
 let lapCount = 1;
 
@@ -7,26 +8,32 @@ const lapsContainer = document.getElementById("laps");
 const startStopBtn = document.getElementById("startStop");
 
 function updateDisplay() {
-  timerDisplay.innerText = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}:${String(ms).padStart(2, '0')}`;
+  const totalElapsed = Date.now() - startTime + elapsedTime;
+  const minutes = Math.floor(totalElapsed / 60000);
+  const seconds = Math.floor((totalElapsed % 60000) / 1000);
+  const milliseconds = Math.floor((totalElapsed % 1000) / 10);
+
+  timerDisplay.innerText =
+    `${String(minutes).padStart(2, '0')}:` +
+    `${String(seconds).padStart(2, '0')}:` +
+    `${String(milliseconds).padStart(2, '0')}`;
 }
 
 function startTimer() {
-  interval = setInterval(() => {
-    ms++;
-    if (ms === 50) { ms = 0; s++; }
-    if (s === 60) { s = 0; m++; }
-    updateDisplay();
-  }, 20);
+  startTime = Date.now();
+  interval = setInterval(updateDisplay, 10);
 }
 
 function stopTimer() {
   clearInterval(interval);
+  elapsedTime += Date.now() - startTime;
 }
 
 function resetAll() {
-  stopTimer();
-  [ms, s, m] = [0, 0, 0];
-  updateDisplay();
+  clearInterval(interval);
+  startTime = 0;
+  elapsedTime = 0;
+  timerDisplay.innerText = "00:00:00";
   startStopBtn.innerText = "Start";
   startStopBtn.classList.remove("pause");
   startStopBtn.classList.add("start");
