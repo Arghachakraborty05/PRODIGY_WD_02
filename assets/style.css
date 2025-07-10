@@ -245,6 +245,11 @@
   }
 }
 @media (max-width: 200px) {
+  header h1 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+ 
   .stopwatch {
     font-size: 1rem;
   }
