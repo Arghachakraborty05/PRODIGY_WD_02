@@ -239,11 +239,16 @@
     }
   }
 
-  @media (max-width: 250px) {
-    .stopwatch {
-      font-size: 1.3rem;
-    }
+ @media (max-width: 250px) {
+  .stopwatch {
+    font-size: 1.1rem;
   }
+}
+@media (max-width: 200px) {
+  .stopwatch {
+    font-size: 0.9rem;
+  }
+}
 
   @media (min-width: 250px) and (max-width: 400px) {
     .stopwatch {
