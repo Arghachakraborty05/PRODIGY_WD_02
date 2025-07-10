@@ -241,12 +241,12 @@
 
  @media (max-width: 250px) {
   .stopwatch {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
 @media (max-width: 200px) {
   .stopwatch {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
