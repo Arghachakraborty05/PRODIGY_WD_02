@@ -202,16 +202,7 @@
     scrollbar-color: rgba(0, 255, 204, 0.3) transparent;
   }
 
-  @media (max-width: 768px) {
-  .laps::-webkit-scrollbar {
-    display: none;
-  }
-
-  .laps {
-    -ms-overflow-style: none;  /* IE/Edge */
-    scrollbar-width: none;     /* Firefox */
-   }
-  }
+ 
 
 
   #clearLaps {
