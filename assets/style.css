@@ -164,12 +164,10 @@
     align-items: center;
   }
 
-  .laps {
+   .laps {
     list-style: none;
     width: 100%;
     padding: 1rem;
-    border: 1px solid #00ffcc;
-    border-radius: 1rem;
     background-color: rgba(0, 255, 204, 0.05);
     box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
     max-height: 10rem;
@@ -177,7 +175,10 @@
     margin-bottom: 1rem;
     text-align: center;
     font-size: 0.9rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 204, 0.3) transparent;
   }
+
 
   .laps li {
     padding: 0.5rem;
@@ -202,8 +203,16 @@
     scrollbar-color: rgba(0, 255, 204, 0.3) transparent;
   }
 
- 
-
+  @media (max-width: 768px) {
+    .laps::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .laps {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+  }
 
   #clearLaps {
     margin-top: 0.5rem;
@@ -258,3 +267,10 @@
       font-size: 2.6rem;
     }
   }
+
+  .scroll-container {
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
